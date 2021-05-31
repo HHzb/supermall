@@ -4,7 +4,7 @@
     <swiper>
       <swiper-item v-for="items in banners" :key="items.index">
         <a :href="items.link">
-          <img :src="items.image" alt="" />
+          <img :src="items.image" alt="" @load="swiperImgLoad" />
         </a>
       </swiper-item>
     </swiper>
@@ -15,14 +15,25 @@
 import { Swiper, SwiperItem } from "../../../components/common/swiper/index.js";
 
 export default {
-  data() {
-    return {};
-  },
   props: {
     banners: {
       type: Array,
       default() {
         return [];
+      }
+    }
+  },
+  data() {
+    return {
+      sImgLoad: false
+    };
+  },
+  methods: {
+    swiperImgLoad() {
+      //当轮播图图片加载一次后，传出事件
+      if (!this.sImgLoad) {
+        this.$emit("swiperImgLoadFinish");
+        this.sImgLoad = true;
       }
     }
   },

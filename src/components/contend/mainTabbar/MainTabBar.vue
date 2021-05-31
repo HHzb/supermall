@@ -1,5 +1,5 @@
 <template>
-  <tab-bar>
+  <tab-bar class="tabbar-container">
     <tab-bar-item path="/home">
       <img slot="item-icon" src="../../../assets/img/tabbar/home.svg" alt="" />
       <img
@@ -63,4 +63,9 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style>
+.tabbar-container {
+  position: relative;
+  z-index: 10;
+}
+</style>

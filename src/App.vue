@@ -1,6 +1,6 @@
 <template>
-  <div id="app" class="wrapper">
-    <keep-alive exclude="Detail">
+  <div id="app">
+    <keep-alive>
       <router-view />
     </keep-alive>
     <main-tab-bar />
